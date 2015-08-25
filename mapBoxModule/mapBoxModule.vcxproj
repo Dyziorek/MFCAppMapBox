@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2D5A777E-3927-4F32-B5B2-E5F7948FE4E6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>mapBoxModule</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>D:\boost_1_57_0;D:\LocalRepos\mpbox\mapbox-gl-native-master\include;D:\LocalRepos\mpbox\mapbox-gl-native-master\src;D:\LocalRepos\mpbox\libuv-1.x\include;D:\LocalRepos\mpbox\glew-master\include;D:\LocalRepos\mpbox\mapbox-gl-native-master\src\sqlite3;D:\VisualFiles\osmand\core\externals\zlib\zlib-1.2.8;D:\LocalRepos\mpbox\glfw-3.1.1\include;D:\LocalRepos\mpbox\curl-7.43.0\include;D:\LocalRepos\mpbox\libpng-1.6.16;D:\LocalRepos\mpbox\jpeg-9a;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4503</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\mbgl.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\chrono.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\constants.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\enum.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\exception.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\geo.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\gl_helper.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\image.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\mat4.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\math.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\noncopyable.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\parsedate.h" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\projection.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\ptr.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\recursive_wrapper.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\std.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\string.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\time.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\utf.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\util.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\uv.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\variant.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\variant_io.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\vec.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\version.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\collision.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\glyph.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\glyph_store.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\placement.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\rotation_range.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\types.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\box.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\channel.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\clip_id.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\compression.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\error.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\interpolate.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\io.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\mapbox.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\mat3.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\merge_lines.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\optional.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\pbf.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\queue.h" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\raster.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\rect.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\run_loop.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\scaling.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\sqlite3.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\stopwatch.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\texture_pool.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\thread.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\tile_cover.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\token.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\transition.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\unitbezier.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\url.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\utf.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\uv_detail.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\worker.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\work_request.hpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\application_root.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\asset_request_fs.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\asset_root.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\default_styles.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\glfw_view.cpp">
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</PreprocessToFile>
+    </ClCompile>
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\http_request_curl.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\image.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\image_reader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\jpeg_reader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\log_stderr.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\png_reader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\settings_json.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\sqlite_cache.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\string_stdlib.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\thread.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\clipper\clipper.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\csscolorparser\csscolorparser.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\libtess2\bucketalloc.c" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\libtess2\dict.c" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\libtess2\geom.c" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\libtess2\mesh.c" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\libtess2\priorityq.c" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\libtess2\sweep.c" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\libtess2\tess.c" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\geometry\debug_font_buffer.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\geometry\elements_buffer.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\geometry\fill_buffer.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\geometry\glyph_atlas.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\geometry\icon_buffer.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\geometry\line_atlas.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\geometry\line_buffer.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\geometry\resample.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\geometry\sprite_atlas.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\geometry\static_vertex_buffer.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\geometry\text_buffer.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\geometry\vao.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\gl\debugging.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\annotation.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\environment.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\geometry_tile.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\live_tile.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\live_tile_data.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\map.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\map_context.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\map_data.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\raster_tile_data.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\resource_loader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\source.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\sprite.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\tile.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\tile_cache.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\tile_data.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\tile_id.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\tile_parser.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\transform.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\transform_state.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\vector_tile.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\vector_tile_data.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\map\view.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\platform\event.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\platform\gl.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\platform\log.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\debug_bucket.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\fill_bucket.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\frame_history.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\gl_config.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\line_bucket.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\painter.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\painter_clipping.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\painter_debug.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\painter_fill.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\painter_line.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\painter_raster.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\painter_symbol.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\raster_bucket.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\renderer\symbol_bucket.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\dot_shader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\gaussian_shader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\icon_shader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\linepattern_shader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\linesdf_shader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\line_shader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\outline_shader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\pattern_shader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\plain_shader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\raster_shader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\sdf_shader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\shader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\shaders_gl.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\shader\uniform.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\storage\default_file_source.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\storage\http_context.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\storage\network_status.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\storage\request.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\applied_class_properties.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\class_dictionary.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\class_properties.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\filter_expression.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\function_properties.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\piecewisefunction_properties.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\property_fallback.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\style.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\style_layer.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\style_layout.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\style_parser.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\style_properties.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\types.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\style\value.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\collision.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\glyph.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\glyph_store.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\placement.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\rotation_range.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\clip_id.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\compression.cpp">
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</PreprocessToFile>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\constants.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\io.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\mapbox.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\mat3.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\mat4.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\math.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\merge_lines.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\parsedate.c" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\raster.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\run_loop.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\scaling.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\sqlite3.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\stopwatch.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\texture_pool.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\tile_cover.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\time.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\transition.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\url.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\uv.cpp">
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</PreprocessToFile>
+    </ClCompile>
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\version_info.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\worker.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\work_request.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\work_task.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\sqlite3\sqlite3c.c" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="patternPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="patternVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ShaderCommon.hlsli" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
