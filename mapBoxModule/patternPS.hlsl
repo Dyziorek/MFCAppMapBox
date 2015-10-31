@@ -5,6 +5,9 @@ sampler TextureSampler : register(s0);
 
 cbuffer Parameters : register(b0)
 {
+	row_major matrix<float, 4, 4>  u_matrix;
+	row_major matrix<float, 3, 3> pattern_a;
+	row_major matrix<float, 3, 3> pattern_b;
 	float u_opacity;
 	float2 u_pattern_tl_a;
 	float2 u_pattern_br_a;

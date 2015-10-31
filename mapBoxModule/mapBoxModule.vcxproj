@@ -49,7 +49,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\boost_1_57_0;D:\LocalRepos\mpbox\mapbox-gl-native-master\include;D:\LocalRepos\mpbox\mapbox-gl-native-master\src;D:\LocalRepos\mpbox\libuv-1.x\include;D:\LocalRepos\mpbox\glew-master\include;D:\LocalRepos\mpbox\mapbox-gl-native-master\src\sqlite3;D:\VisualFiles\osmand\core\externals\zlib\zlib-1.2.8;D:\LocalRepos\mpbox\glfw-3.1.1\include;D:\LocalRepos\mpbox\curl-7.43.0\include;D:\LocalRepos\mpbox\libpng-1.6.16;D:\LocalRepos\mpbox\jpeg-9a;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\boost_1_57_0;D:\LocalRepos\mpbox\mapbox-gl-native-master\include;D:\LocalRepos\mpbox\mapbox-gl-native-master\src;D:\LocalRepos\mpbox\libuv-1.x\include;D:\LocalRepos\mpbox\glew-master\include;D:\LocalRepos\mpbox\mapbox-gl-native-master\src\sqlite3;D:\VisualFiles\osmand\core\externals\zlib\zlib-1.2.8;D:\LocalRepos\mpbox\glfw-3.1.1\include;D:\LocalRepos\mpbox\curl-7.43.0\include;D:\LocalRepos\mpbox\libpng-1.6.16;D:\LocalRepos\mpbox\jpeg-9a;D:\LocalRepos\DirectXTK-master\Inc;D:\LocalRepos\DirectXTK-master\Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4503</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -103,6 +103,8 @@
     <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\variant_io.hpp" />
     <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\vec.hpp" />
     <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\version.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\platform\win32\DxConfig.hpp" />
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\platform\win32\DXShader.hpp" />
     <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\collision.hpp" />
     <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\glyph.hpp" />
     <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\text\glyph_store.hpp" />
@@ -139,6 +141,10 @@
     <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\uv_detail.hpp" />
     <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\worker.hpp" />
     <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\work_request.hpp" />
+    <ClInclude Include="DXBuffers.hpp" />
+    <ClInclude Include="DxView.hpp" />
+    <ClInclude Include="IconDXBuffer.hpp" />
+    <ClInclude Include="Icon_DXShader.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -160,6 +166,10 @@
     <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\sqlite_cache.cpp" />
     <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\string_stdlib.cpp" />
     <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\thread.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\win32\DX.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\win32\DxConfig.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\win32\DXShader.cpp" />
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\win32\DxShaders.cpp" />
     <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\clipper\clipper.cpp" />
     <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\csscolorparser\csscolorparser.cpp" />
     <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\libtess2\bucketalloc.c" />
@@ -289,19 +299,135 @@
     <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\work_request.cpp" />
     <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\mbgl\util\work_task.cpp" />
     <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\src\sqlite3\sqlite3c.c" />
+    <ClCompile Include="DXBuffers.cpp" />
+    <ClCompile Include="IconDXBuffer.cpp" />
+    <ClCompile Include="Icon_DXShader.cpp" />
+    <ClCompile Include="DxView.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="gaussianPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="gaussianVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="iconPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="iconVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="linepatternPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="linepatternVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="linePS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="linesdfPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="linesdfVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="lineVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="outlinePS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="outlineVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
     <FxCompile Include="patternPS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
     </FxCompile>
     <FxCompile Include="patternVS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="plainPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="plainVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="rasterPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="rasterVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="sdfPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="sdfVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\LocalRepos\mpbox\mapbox-gl-native-master\include\mbgl\platform\win32\%(Filename).inc</HeaderFileOutput>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>

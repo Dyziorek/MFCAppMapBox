@@ -249,6 +249,24 @@
     <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\include\mbgl\util\version.hpp">
       <Filter>Header Files\mbgl\util</Filter>
     </ClInclude>
+    <ClInclude Include="DxView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\platform\win32\DXShader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Icon_DXShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mpbox\mapbox-gl-native-master\platform\win32\DxConfig.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DXBuffers.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IconDXBuffer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -671,12 +689,90 @@
     <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\default\default_styles.cpp">
       <Filter>Source Files\util</Filter>
     </ClCompile>
+    <ClCompile Include="DxView.cpp">
+      <Filter>Source Files\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\win32\DX.cpp">
+      <Filter>Source Files\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\win32\DxShaders.cpp">
+      <Filter>Source Files\shaders_DX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\win32\DXShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Icon_DXShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mpbox\mapbox-gl-native-master\platform\win32\DxConfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DXBuffers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IconDXBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="patternVS.hlsl">
       <Filter>Source Files\shaders_DX</Filter>
     </FxCompile>
     <FxCompile Include="patternPS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="linesdfVS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="linesdfPS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="rasterVS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="rasterPS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="gaussianVS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="gaussianPS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="sdfVS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="sdfPS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="plainVS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="plainPS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="lineVS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="linePS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="outlineVS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="outlinePS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="linepatternVS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="linepatternPS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="iconVS.hlsl">
+      <Filter>Source Files\shaders_DX</Filter>
+    </FxCompile>
+    <FxCompile Include="iconPS.hlsl">
       <Filter>Source Files\shaders_DX</Filter>
     </FxCompile>
   </ItemGroup>
